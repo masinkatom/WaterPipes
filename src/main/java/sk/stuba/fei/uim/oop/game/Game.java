@@ -9,11 +9,7 @@ import java.awt.*;
 public class Game {
 
     public Game() {
-        JFrame mainFrame = new JFrame("Water Pipes");
-        mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        mainFrame.setSize(900,500);
-        mainFrame.setResizable(false);
-        mainFrame.setBackground(Color.white);
+        Window mainFrame = new Window("Water Pipes");
         
         Field tileField = new Field(8);
 
@@ -45,7 +41,6 @@ public class Game {
         sideMenu.add(slider);
         sideMenu.add(level);
 
-        mainFrame.setLayout(new GridLayout(0, 2, 20, 0));
         mainFrame.add(sideMenu, BorderLayout.WEST);
         mainFrame.add(tileField);
         mainFrame.setVisible(true);
