@@ -1,8 +1,9 @@
-package sk.stuba.fei.uim.oop.game;
+package sk.stuba.fei.uim.oop.gui;
 
 import javax.swing.*;
 
 import sk.stuba.fei.uim.oop.board.Field;
+import sk.stuba.fei.uim.oop.controls.GameLogic;
 
 import java.awt.*;
 
@@ -10,6 +11,9 @@ public class Game {
 
     public Game() {
         Window mainFrame = new Window("Water Pipes");
+
+        GameLogic gameLogic = new GameLogic();
+        mainFrame.addKeyListener(gameLogic);
         
         Field tileField = new Field(8);
 
@@ -26,6 +30,7 @@ public class Game {
         slider.setPaintTicks(true);
         slider.setPaintLabels(true);
         slider.setFocusable(false);
+        slider.addChangeListener(null);
 
         JTextField level = new JTextField();
         level.setText("AHOJ !!!!");

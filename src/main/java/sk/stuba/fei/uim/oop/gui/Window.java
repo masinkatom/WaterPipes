@@ -1,4 +1,4 @@
-package sk.stuba.fei.uim.oop.game;
+package sk.stuba.fei.uim.oop.gui;
 
 import java.awt.Color;
 import java.awt.GridLayout;
