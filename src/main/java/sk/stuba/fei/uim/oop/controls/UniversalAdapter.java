@@ -2,36 +2,34 @@ package sk.stuba.fei.uim.oop.controls;
 
 import java.awt.event.*;
 
-public class UniversalAdapter implements MouseListener, MouseMotionListener, KeyListener{
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
+
+public class UniversalAdapter implements MouseListener, MouseMotionListener, KeyListener, ActionListener, ChangeListener{
 
     @Override
     public void mouseClicked(MouseEvent e) {
         // TODO Auto-generated method stub
-        
     }
 
     @Override
     public void mouseEntered(MouseEvent e) {
         // TODO Auto-generated method stub
-        
     }
 
     @Override
     public void mouseExited(MouseEvent e) {
         // TODO Auto-generated method stub
-        
     }
 
     @Override
     public void mousePressed(MouseEvent e) {
         // TODO Auto-generated method stub
-        
     }
 
     @Override
     public void mouseReleased(MouseEvent e) {
         // TODO Auto-generated method stub
-        
     }
 
     @Override
@@ -61,5 +59,16 @@ public class UniversalAdapter implements MouseListener, MouseMotionListener, Key
         // TODO Auto-generated method stub
         
     }
+
+    @Override
+    public void stateChanged(ChangeEvent e) {
+        // TODO Auto-generated method stub
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        // TODO Auto-generated method stub
+    }
+
     
 }
