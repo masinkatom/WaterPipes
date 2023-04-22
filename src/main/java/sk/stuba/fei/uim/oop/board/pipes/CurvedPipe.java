@@ -1,5 +1,6 @@
 package sk.stuba.fei.uim.oop.board.pipes;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
@@ -14,7 +15,7 @@ public class CurvedPipe extends Tile{
     
     public CurvedPipe(){
         try {
-            this.pic = ImageIO.read(CurvedPipe.class.getResourceAsStream("/pipe-start.png"));
+            this.pic = ImageIO.read(CurvedPipe.class.getResourceAsStream("/pipe-angled.png"));
         } catch (IOException e) {
             e.printStackTrace();
         }

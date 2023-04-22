@@ -11,10 +11,14 @@ import javax.swing.JPanel;
 import lombok.Getter;
 import lombok.Setter;
 
+@Getter @Setter
 public class Tile extends JPanel {
 
-    @Getter @Setter
     private boolean toHighlight;
+    private int north;
+    private int south;
+    private int east;
+    private int west;
 
     public Tile() {
         this.setBorder(BorderFactory.createLineBorder(Color.black));

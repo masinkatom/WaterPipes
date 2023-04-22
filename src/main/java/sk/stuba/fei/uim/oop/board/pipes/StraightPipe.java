@@ -14,7 +14,7 @@ public class StraightPipe extends Tile{
     
     public StraightPipe(){
         try {
-            this.pic = ImageIO.read(StraightPipe.class.getResourceAsStream("/pipe-start.png"));
+            this.pic = ImageIO.read(StraightPipe.class.getResourceAsStream("/pipe-straight.png"));
         } catch (IOException e) {
             e.printStackTrace();
         }

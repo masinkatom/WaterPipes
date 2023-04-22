@@ -74,6 +74,11 @@ public class GameLogic extends UniversalAdapter{
                 System.out.println("R");
                 this.gameRestart();
                 break;
+
+            case KeyEvent.VK_ENTER:
+                System.out.println("ENTER");
+                // TODO kontrola cesty
+                break;
         }
     }
 
