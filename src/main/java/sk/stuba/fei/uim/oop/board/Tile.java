@@ -8,11 +8,12 @@ import java.awt.Graphics2D;
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 
+import lombok.Getter;
 import lombok.Setter;
 
 public class Tile extends JPanel {
 
-    @Setter
+    @Getter @Setter
     private boolean toHighlight;
 
     public Tile() {

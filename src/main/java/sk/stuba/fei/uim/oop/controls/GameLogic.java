@@ -1,7 +1,5 @@
 package sk.stuba.fei.uim.oop.controls;
 
-import java.awt.BorderLayout;
-import java.awt.Button;
 import java.awt.Component;
 import java.awt.Window;
 import java.awt.event.ActionEvent;
@@ -74,6 +72,7 @@ public class GameLogic extends UniversalAdapter{
 
             case KeyEvent.VK_R:
                 System.out.println("R");
+                this.gameRestart();
                 break;
         }
     }
