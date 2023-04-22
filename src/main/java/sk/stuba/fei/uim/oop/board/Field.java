@@ -18,6 +18,10 @@ public class Field extends JPanel{
     private ArrayList<ArrayList<Tile>> tiles;
     private int[] startXY;
     private int[] endXY;
+    private static final int NORTH = 2;
+    private static final int SOUTH = 4;
+    private static final int EAST = 3;
+    private static final int WEST = 1;
 
     public Field(int fieldSize) {
         this.fieldSize = fieldSize;
@@ -37,11 +41,11 @@ public class Field extends JPanel{
             }
         }
         
-        this.getStartEndXY();
+        int coordinate = this.getStartEndXY();
 
-        this.tiles.get(0).set(5, new CurvedPipe());
-        this.tiles.get(this.endXY[1]).set(this.endXY[0], new EndPipe());
-        this.tiles.get(this.startXY[1]).set(this.startXY[0], new StartPipe());
+        this.tiles.get(0).set(5, new CurvedPipe(WEST));
+        this.tiles.get(this.endXY[1]).set(this.endXY[0], new EndPipe(coordinate));
+        this.tiles.get(this.startXY[1]).set(this.startXY[0], new StartPipe(coordinate));
 
         this.addTiles();
     }
@@ -56,35 +60,38 @@ public class Field extends JPanel{
         }
     }
 
-    private void getStartEndXY(){
+    private int getStartEndXY(){
         this.startXY = new int[2];
         this.endXY = new int[2];
         int coordinate = (int)(Math.random() * 4) + 1;
-        if (coordinate == 1){
+        if (coordinate == EAST){
             startXY[0] = this.fieldSize-1;
             startXY[1] = (int)(Math.random() * (this.fieldSize));
             endXY[0] = 0;
             endXY[1] = (int)(Math.random() * (this.fieldSize));
         }
-        else if (coordinate == 2){
+        else if (coordinate == SOUTH){
             startXY[0] = (int)(Math.random() * (this.fieldSize));
             startXY[1] = this.fieldSize-1;
             endXY[0] = (int)(Math.random() * (this.fieldSize));
             endXY[1] = 0;
         }
-        else if (coordinate == 3){
+        else if (coordinate == WEST){
             startXY[0] = 0;
             startXY[1] = (int)(Math.random() * (this.fieldSize));
             endXY[0] = this.fieldSize-1;
             endXY[1] = (int)(Math.random() * (this.fieldSize));
         }
-        else if (coordinate == 4){
+        else if (coordinate == NORTH){
             startXY[0] = (int)(Math.random() * (this.fieldSize));
             startXY[1] = 0;
             endXY[0] = (int)(Math.random() * (this.fieldSize));
             endXY[1] = this.fieldSize-1;
         }
+        return coordinate;
     }
+
+    
 
 
 }

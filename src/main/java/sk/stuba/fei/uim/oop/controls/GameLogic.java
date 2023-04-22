@@ -56,6 +56,7 @@ public class GameLogic extends UniversalAdapter{
     private void initField(){
         this.playField = new Field(this.fieldSize);
         this.playField.addMouseMotionListener(this);
+        this.playField.addMouseListener(this);
     }
 
     private void updateLevelCount(){
@@ -108,6 +109,20 @@ public class GameLogic extends UniversalAdapter{
         }
         this.playField.repaint();
     }
+
+    @Override
+    public void mouseClicked(MouseEvent e) {
+        Component currComponent = this.playField.getComponentAt(e.getPoint());
+        
+        if (currComponent instanceof Tile){
+            ((Tile) currComponent).rotate();
+        }
+        
+        this.playField.revalidate();
+        this.playField.repaint();
+    }
+
+    
     
     
 
