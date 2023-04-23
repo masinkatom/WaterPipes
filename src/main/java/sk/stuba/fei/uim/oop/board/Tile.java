@@ -5,8 +5,10 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
 
 import javax.swing.BorderFactory;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import lombok.Getter;
@@ -17,13 +19,27 @@ public class Tile extends JPanel {
 
     private boolean toHighlight;
     private boolean toRotate;
-    private int facing;
+    private ArrayList<Integer> facing;
     private BufferedImage picture;
+    private boolean visited;
+    private int xPos;
+    private int yPos;
 
-    public Tile() {
+    private JLabel label;
+
+    public Tile(int x, int y) {
         this.setBorder(BorderFactory.createLineBorder(Color.black));
         this.setBackground(Color.white);
+        this.visited = false;
+        facing = new ArrayList<Integer>();
+        this.xPos = x;
+        this.yPos = y;
+        label = new JLabel();
+        this.add(label);
+        label.setVisible(true);
     }
+
+    
 
     @Override
     protected void paintComponent(Graphics g) {
@@ -39,26 +55,30 @@ public class Tile extends JPanel {
 
     public void rotate(){
     }
-
-    public BufferedImage rotateImg(){
-        int width = picture.getWidth();
-        int height = picture.getHeight();
-
-        BufferedImage newImage = new BufferedImage(picture.getWidth(), picture.getHeight(), picture.getType());
-
-        //Graphics2D g2 = newImage.createGraphics();
-
-        //g2.rotate(Math.toRadians(90), width / 2, height / 2);
-        //g2.drawImage(picture, null, 0, 0);
-
-        return newImage;
-    }
     
     public void changeFacing(){
-        if (this.facing >= 4){
-            this.facing = 1;
+        int i = 0;
+        for (Integer face : facing) {
+            if (face >= 4){
+                face = 1;
+            }
+            else {
+                face ++;
+            }
+            this.facing.set(i, face);
+            i++;
         }
-        else this.facing ++;
+       
         
     }
+
+    public int getAngle(){
+        switch(this.getFacing().get(0)){
+            case 2: return 270;
+            case 1: return 180;
+            case 4: return 90;
+            default: return 0;
+        }
+    }
+    
 }

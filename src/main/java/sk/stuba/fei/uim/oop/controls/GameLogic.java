@@ -78,7 +78,7 @@ public class GameLogic extends UniversalAdapter{
 
             case KeyEvent.VK_ENTER:
                 System.out.println("ENTER");
-                // TODO kontrola cesty
+                this.playField.checkRoute();
                 break;
         }
     }
@@ -90,6 +90,7 @@ public class GameLogic extends UniversalAdapter{
             this.gameRestart();
         }
         else {
+            this.playField.checkRoute();
             System.out.println("Route");
         }
     }
